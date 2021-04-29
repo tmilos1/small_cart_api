@@ -4,7 +4,9 @@ import { CartsModule } from './carts/carts.module';
 import { ProductsModule } from './products/products.module';
 
 @Module({
-  imports: [CartsModule,
+  imports: [
+    CartsModule,
+    ProductsModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',

@@ -14,7 +14,8 @@ export class CartsService {
   ) {}
 
   async create(createCartDto: CreateCartDto) {
-    return this.cartRepository.create(createCartDto);
+    const newCart = this.cartRepository.create(createCartDto);
+    return await this.cartRepository.save(newCart);
   }
 
   async findAll() {
@@ -27,7 +28,8 @@ export class CartsService {
 
   async update(id: number, updateCartDto: UpdateCartDto) {
     const cart = await this.cartRepository.findOneOrFail(id);
-    return this.cartRepository.save(updateCartDto);
+    const updatedCart = {...cart, ...updateCartDto};
+    return await this.cartRepository.save(updatedCart);
   }
 
   async remove(id: number) {

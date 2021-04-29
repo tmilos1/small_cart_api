@@ -12,6 +12,9 @@ export class Product {
     @Column({ length: 200 })
     name: string;
   
-    @Column({ length: 1000 })
+    @Column({ length: 1000, default: '' })
     description: string;
+
+    @Column({ type: 'numeric', precision: 10, scale: 2 })
+    unitPrice: number;    
 }
