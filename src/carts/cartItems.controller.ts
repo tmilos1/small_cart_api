@@ -13,8 +13,8 @@ export class CartItemsController {
   }
 
   @Patch('cartItems/:cartItemId')
-  update(@Param('cartItemId') cartItemId: number, @Body() updateCartDto: UpdateCartItemDto) {
-    return this.cartItemsService.update(+cartItemId, updateCartDto);
+  async pdate(@Param('cartItemId') cartItemId: number, @Body() updateCartDto: UpdateCartItemDto) {
+    return await this.cartItemsService.update(+cartItemId, updateCartDto);
   }
 
   @Delete('cartItems/:cartItemId')
