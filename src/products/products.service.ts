@@ -22,7 +22,7 @@ export class ProductsService {
   }
 
   async findOne(id: number) {
-    return await this.productRepository.findOne(id)
+    return await this.productRepository.findOneOrFail(id)
   }
 
   async update(id: number, updateProductDto: UpdateProductDto) {
