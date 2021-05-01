@@ -17,12 +17,12 @@ export class ProductsService {
     return await this.productRepository.save(newProduct);
   }
 
-  async findAll() {
-    return await this.productRepository.find()
+  findAll() {
+    return this.productRepository.find()
   }
 
-  async findOne(id: number) {
-    return await this.productRepository.findOneOrFail(id)
+  findOne(id: number) {
+    return this.productRepository.findOneOrFail(id)
   }
 
   async update(id: number, updateProductDto: UpdateProductDto) {

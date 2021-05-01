@@ -8,28 +8,28 @@ export class CartsController {
   constructor(private readonly cartsService: CartsService) {}
 
   @Post()
-  async create(@Body() createCartDto: CreateCartDto) {
-    return await this.cartsService.create(createCartDto);
+  create(@Body() createCartDto: CreateCartDto) {
+    return this.cartsService.create(createCartDto);
   }
 
   @Get()
-  async findAll() {
-    return await this.cartsService.findAll();
+  findAll() {
+    return this.cartsService.findAll();
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return await this.cartsService.findOne(+id);
+  findOne(@Param('id') id: string) {
+    return this.cartsService.findOne(+id);
   }
 
   @Patch(':id')
-  async update(@Param('id') id: string, @Body() updateCartDto: UpdateCartDto) {
-    return await this.cartsService.update(+id, updateCartDto);
+  update(@Param('id') id: string, @Body() updateCartDto: UpdateCartDto) {
+    return this.cartsService.update(+id, updateCartDto);
   }
 
   @Delete(':id')
   @HttpCode(204)
-  async remove(@Param('id') id: string) {
-    return await this.cartsService.remove(+id);
+  remove(@Param('id') id: string) {
+    return this.cartsService.remove(+id);
   }
 }

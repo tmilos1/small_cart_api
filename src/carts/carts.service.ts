@@ -18,12 +18,12 @@ export class CartsService {
     return await this.cartRepository.save(newCart);
   }
 
-  async findAll() {
-    return await this.cartRepository.find()
+  findAll() {
+    return this.cartRepository.find()
   }
 
-  async findOne(id: number) {
-    return await this.cartRepository.findOneOrFail(id, {relations: ['cartItems']})
+  findOne(id: number) {
+    return this.cartRepository.findOneOrFail(id, {relations: ['cartItems']})
   }
 
   async update(id: number, updateCartDto: UpdateCartDto) {
